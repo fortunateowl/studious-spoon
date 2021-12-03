@@ -17,11 +17,10 @@ soup = BeautifulSoup(content, "lxml")
 all_a = soup.find_all("a")
 links = []
 for i in all_a:
-    if i.get("href") != '#':
+    if i.get("href") != '#':        # skips href that are not actual links, this needs to be generalized
         links.append(i.get("href"))
  
-    
-
+# Write links to a file
 with open('urls.txt', 'w') as file:
       file_content = "\n".join(links)
  
